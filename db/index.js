@@ -12,7 +12,7 @@ module.exports = function () {
   const shoppingCartDetails = shoppingCartDetailsModel(config);
 
   products.hasMany(shoppingCartDetails, { foreignKey: 'idProduct' });
-  shoppingCarts.hasMany(shoppingCartDetails, { foreignKey: 'idCart' });
+  shoppingCarts.hasMany(shoppingCartDetails, { foreignKey: 'idCart', as: 'products' });
 
   shoppingCartDetails.belongsTo(products, { foreignKey: 'idProduct', as: 'product' });
   shoppingCartDetails.belongsTo(shoppingCarts, { foreignKey: 'idCart', as: 'cart' });

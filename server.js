@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const createError = require('http-errors');
+const cors = require('cors')
 const db = require('./db')();
 
 const app = express();
@@ -12,6 +13,7 @@ const api = require('./api');
 db.sequelize.authenticate();
 
 app.use(morgan());
+app.use(cors())
 app.use(bodyParser.json());
 
 app.use('/api', api);

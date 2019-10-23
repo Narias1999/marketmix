@@ -1,13 +1,23 @@
 const express = require('express');
 const createError = require('http-errors');
-const ShoppingCart = require('./../../services/shoppingCarts')
+const ShoppingCart = require('./../../services/shoppingCarts');
 
-const shoppingCart = new ShoppingCart
+const shoppingCart = new ShoppingCart();
 const shoppingCartRouter = express.Router();
 
-shoppingCartRouter.get('/', async (req, res, next) => {
+shoppingCartRouter.get('/:idCart', async (req, res, next) => {
+  const { idCart } = req.params;
+  try {
+    const response = await shoppingCart.getShoppingCart(idCart)
 
-})
+    res.status(200).json({
+      data: response,
+      message: 'Carrito de compras obtenido con éxito'
+    })
+  } catch (error) {
+    next(error)
+  }
+});
 
 shoppingCartRouter.post('/', async (req, res, next) => {
   const { products } = req.body;
@@ -19,17 +29,17 @@ shoppingCartRouter.post('/', async (req, res, next) => {
   if (!(products instanceof Array)) {
     return next(createError(400, 'Bad Request: Los productos deben ser un array.'));
   }
-  
+
   if (!products.length) {
     return next(createError(400, 'Bad Request: Debe enviar por lo menos un producto.'));
   }
 
-  if (new Set(products).size !== products.length ) {
+  if (new Set(products).size !== products.length) {
     return next(createError(400, 'Bad Request: Hay productos repetidos.'));
   }
 
   try {
-    const cart = await shoppingCart.create(products)
+    const cart = await shoppingCart.create(products);
 
     return res
       .status(201)
@@ -38,25 +48,23 @@ shoppingCartRouter.post('/', async (req, res, next) => {
         message: 'Carrito de compras creado con éxito!',
       });
   } catch (error) {
-    next(error)
+    next(error);
   }
-
 });
 
 shoppingCartRouter.delete('/:idCart/:idProduct', async (req, res, next) => {
   const { idCart, idProduct } = req.params;
 
   try {
-    const deleteCount = await shoppingCart.deleteCartItem({ idCart, idProduct })
+    const deleteCount = await shoppingCart.deleteCartItem({ idCart, idProduct });
 
     if (deleteCount) {
-      return res.status(204).send()
+      return res.status(204).send();
     }
 
-    return next(createError(400, 'Bad Request: Ningun item del carrito de compras tiene los ids enviados.'))
-
+    return next(createError(400, 'Bad Request: No existe el producto en el carrito de compras.'));
   } catch (error) {
-    next(error)
+    next(error);
   }
 });
 
