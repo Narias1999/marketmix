@@ -1,12 +1,9 @@
-const { productsInstance } = require('./../db')()
+const { products } = require('./../db')();
 
 class ProductService {
-    constructor() {
-        this.productsInstance = productsInstance
-    }
 
   getAll() {
-    return this.productsInstance.findAll()
+    return products.findAll();
   }
 }
 

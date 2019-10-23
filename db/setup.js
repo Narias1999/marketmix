@@ -1,6 +1,8 @@
 
 const inquirer = require('inquirer');
 const dbs = require('./index');
+const faker = require('faker')
+
 
 const prompt = inquirer.createPromptModule();
 
@@ -14,12 +16,28 @@ async function setup() {
   ]);
   if (!answer.setup) return console.log('OK!');
 
-  const { sequelize } =  dbs();
+  const { sequelize, products } = dbs();
 
-  
   try {
-    await sequelize.authenticate()
-    await sequelize.sync({ force: true })
+    await sequelize.authenticate();
+    await sequelize.sync({ force: true });
+
+    // creating mocked products
+    let productsArr = []
+
+    for (let index = 0; index < 200; index++) {
+      const product = {
+        name: faker.commerce.product(),
+        price: Number(faker.finance.amount(2000, 5000, 0)),
+        description: faker.lorem.sentences(4),
+        image: faker.image.food(300, 400)
+      }
+
+      productsArr.push(product)
+    }
+
+    await products.bulkCreate(productsArr)
+
     console.log('database reseted successsfully!');
     process.exit(0);
   } catch (error) {

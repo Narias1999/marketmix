@@ -2,13 +2,14 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const createError = require('http-errors');
-const db = require('./db')()
+const db = require('./db')();
+
 const app = express();
 
 const PORT = process.env.PORT || 3000;
 const api = require('./api');
 
-db.sequelize.authenticate()
+db.sequelize.authenticate();
 
 app.use(morgan());
 app.use(bodyParser.json());
