@@ -1,0 +1,36 @@
+{
+  "name": "markertmix",
+  "version": "0.1.0",
+  "description": "Recruting test",
+  "main": "server.js",
+  "scripts": {
+    "lint": "eslint --fix .",
+    "setup-db": "node ./db/setup.js",
+    "start-dev": "nodemon server.js"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "restful",
+    "api"
+  ],
+  "author": "Nicolás Arias",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "http-errors": "^1.7.3",
+    "inquirer": "^7.0.0",
+    "morgan": "^1.9.1",
+    "pg": "^7.12.1",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.21.1"
+  },
+  "devDependencies": {
+    "eslint": "^6.5.1",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "nodemon": "^1.19.4"
+  }
+}
