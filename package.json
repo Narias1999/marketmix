@@ -6,7 +6,8 @@
   "scripts": {
     "lint": "eslint --fix .",
     "setup-db": "node ./db/setup.js",
-    "start-dev": "nodemon server.js"
+    "start-dev": "nodemon server.js",
+    "start": "node server.js"
   },
   "keywords": [
     "nodejs",

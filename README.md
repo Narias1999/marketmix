@@ -81,7 +81,8 @@ Ejemplo de respuesta fallida:
 }
 ```
 ### DELETE /shopping-cart/:idCart/:idProduct  
-Elimina un item del carrito de compras. Ejemplo de respuesta exitosa: 
+Elimina un item del carrito de compras.  
+Ejemplo de respuesta exitosa:  
 ```js
 // STATUS CODE: 204 No Content
 ```
@@ -94,4 +95,19 @@ Ejemplo de respuesta fallida:
 ```
 
 ### GET /shopping-cart/:idCart
-Trae el carrito un carrito de compras por id. (El enpoint fue creado para facilitar las pruebas de los endpoints anteriormente mencionados)
+Trae el carrito un carrito de compras por id. (El enpoint fue creado para facilitar las pruebas de los endpoints anteriormente mencionados)  
+Ejemplo de respuesta exitosa:  
+```json
+// STATUS CODE: 200 Ok
+{
+    "data": {
+        "id": 1,
+        "products": [
+            {
+                ...ProductModel
+            }
+        ]
+    },
+    "message": "producto obtenido con éxito"
+}
+```
