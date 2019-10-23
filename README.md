@@ -1,5 +1,5 @@
 # MarketMix Api  
-Codebase de la prueba de selección de marketmix.
+Codebase de la prueba de selección de marketmix. La aplicación ya está corriendo en [https://marketmix.herokuapp.com/api](https://marketmix.herokuapp.com/api). Sin embargo abajo están las instrucciones para correr la aplicación en tu propio ambiente.  
 
 ## Prueba
 
@@ -32,6 +32,7 @@ Desarrollar una rest api que consuma un servicio web preferiblemente en javascri
 ## Endpoints  
 La API corre por defecto en el puerto 3000. Todos los endpoints aquí documentados estan prefijados por /api. Ejemplo:  
 
+https://marketmix.herokuapp.com/api/products  
 http://localhost:3000/api/products
 
 ### GET /products  
