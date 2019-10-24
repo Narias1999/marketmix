@@ -19,7 +19,7 @@ Desarrollar una rest api que consuma un servicio web preferiblemente en javascri
 ## Instalación
 - Clonar repositorio.  
 - ingrasar al directorio de la aplicación.  
-- Ejecutar `npm install` para instalar dependencias del proyecto.  
+- Ejecutar `npm run install-all` para instalar dependencias del proyecto.  
 - Crear archivo `.env` basándose en el archivo `.env.example` colocando los datos para la conexión a tú propia base de datos.  
 - Ejecutar `npm run setup-db` para inicializar las tablas de la base de datos.  
 - Ejecutar `npm run start-dev` para iniciar el servicio.  

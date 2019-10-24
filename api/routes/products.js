@@ -1,5 +1,5 @@
 const express = require('express');
-const Products = require('./../../services/products');
+const Products = require('@marketmix/services/products');
 
 const prodcutsService = new Products();
 

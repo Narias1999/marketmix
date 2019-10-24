@@ -1,0 +1,14 @@
+{
+  "name": "db",
+  "version": "0.1.0",
+  "description": "DB module",
+  "main": "index.js",
+  "author": "Nicolás Arias",
+  "dependencies": {
+    "pg": "^7.12.1",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.21.1",
+    "inquirer": "^7.0.0",
+    "faker": "^4.1.0"
+  }
+}

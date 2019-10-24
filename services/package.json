@@ -1,0 +1,9 @@
+{
+    "name": "services",
+    "version": "0.1.0",
+    "description": "Services module",
+    "author": "Nicolás Arias",
+    "dependencies": {
+        "@marketmix/db": "file:../db"
+    }
+}

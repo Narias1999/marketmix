@@ -17,6 +17,8 @@ module.exports = function () {
   shoppingCartDetails.belongsTo(products, { foreignKey: 'idProduct', as: 'product' });
   shoppingCartDetails.belongsTo(shoppingCarts, { foreignKey: 'idCart', as: 'cart' });
 
+  sequelize.authenticate();
+
   return {
     sequelize,
     products,
