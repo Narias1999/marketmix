@@ -25,9 +25,10 @@ Desarrollar una rest api que consuma un servicio web preferiblemente en javascri
 - Ejecutar `npm run start-dev` para iniciar el servicio.  
 
 ## Scripts
-
-- `npm run setup-db`: Reinicia las tablas de la base de datos y pobla la tabla de productos con datos fake para las pruebas.  
-- `npm run lint`: Hace linting de los archivos con eslint y la [guía de estilo de codigo de airbnb](https://github.com/airbnb/javascript).  
+- `install-all`: Debido a que el proyecto está compuesto de varios módulos hay que instalar dependencias en cada uno de ellos, este script se encarga de hacer la instalación de dependencias en todos los módulos.  
+- `setup-db`: Reinicia las tablas de la base de datos y pobla la tabla de productos con datos fake para las pruebas.  
+- `lint`: Hace linting de los archivos con eslint y la [guía de estilo de codigo de airbnb](https://github.com/airbnb/javascript).  
+- `start-dev`: Inicia el servicio de nodejs con la herramienta de monitoreo nodemon.  
 
 ## Endpoints  
 La API corre por defecto en el puerto 3000. Todos los endpoints aquí documentados estan prefijados por /api. Ejemplo:  
